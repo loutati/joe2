@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Piège</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .oui {
+            background-color: green;
+            color: white;
+        }
+        .non {
+            background-color: red;
+            color: white;
+            position: absolute;
+            width: 100px;  /* Taille fixe */
+            height: 50px;  /* Taille fixe */
+            line-height: 50px; /* Centrer le texte */
+            text-align: center;
+            right: 20px;  /* Position initiale en bas à droite */
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>will you be my valentine ?</h2>
+    
+    <div class="container">
+        <button class="btn oui" onclick="window.location.href='message.html'">Oui</button>
+        <button class="btn non" id="btnNon">Non</button>
+    </div>
+
+    <script>
+        let btnNon = document.getElementById("btnNon");
+
+        // Fonction pour déplacer le bouton "Non"
+        function deplacerNon() {
+            let maxX = window.innerWidth - btnNon.offsetWidth;
+            let maxY = window.innerHeight - btnNon.offsetHeight;
+
+            let newX = Math.random() * maxX;
+            let newY = Math.random() * maxY;
+
+            btnNon.style.left = newX + "px";
+            btnNon.style.top = newY + "px";
+        }
+
+        // Déplacer le bouton "Non" lors du survol
+        btnNon.addEventListener("mouseover", deplacerNon);
+    </script>
+
+</body>
+</html>
